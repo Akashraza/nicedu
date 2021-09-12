@@ -17,6 +17,9 @@ header{
 	z-index: 2;
 	transition: 0.5s;
 }
+ .modal-dialog{
+        max-width: 600px !important;
+    }
 .sticky{
 	background: rgba(225, 225, 225, .5);
 	z-index: 11;
@@ -1013,11 +1016,35 @@ background: linear-gradient(180deg, rgba(217,244,235,0.17440479609812676) 6%, rg
         -webkit-align-items: center;
         align-items: center;
       }
-
+      @media(max-width: 1280px){
+      	.career_box{
+      		width: 230px;
+      		height: 230px;
+      	}
+      	.title_h h5{
+      		font-size: 13px;
+      	}
+      	.title_h p{
+      		font-size: 11px;
+      	}
+      }
+ @media(max-width: 991px){
+  	.career_box{
+  		width: 240px;
+  		height: 240px;
+  		margin: 0px auto;
+  	}
+  	.title_h h5{
+  		font-size: 12px;
+  	}
+  	.title_h p{
+  		font-size: 10px;
+  	}
+  }
   @media(max-width: 426px){
    .career_box{
-   	width:200px;
-   	height: 200px;
+   	width:160px;
+   	height: 160px;
    }
    .title_h .imgb{
    	width: 35px;
@@ -1047,3 +1074,4 @@ background: linear-gradient(180deg, rgba(217,244,235,0.17440479609812676) 6%, rg
   .swiper-wrapper {
 	padding-inline-start: 0;
   }
+

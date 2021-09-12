@@ -15,31 +15,59 @@ $('.scrollup').click(function(){
 	$('html').animate({scrollTop:0},1000);
 })
 
-var swiper = new Swiper(".mySwiper", {
-	slidesPerView: 1,
-	spaceBetween: 5,
-	autoplay:true,
-	
-	pagination: {
-	  el: ".swiper-pagination",
-	  clickable: true,
-	},
-	breakpoints: {
-	  640: {
-		slidesPerView: 2,
-		spaceBetween: 20,
-	  },
-	  768: {
-		slidesPerView: 2,
-		spaceBetween: 10,
-	  },
-	  1024: {
-		slidesPerView: 3,
-		spaceBetween: 10,
-	  },
-	  1200: {
-		slidesPerView: 4,
-		spaceBetween: 10,
-	  },
-	},
-  });
+
+
+document.addEventListener("DOMContentLoaded", function(event) {
+ 
+
+function OTPInput() {
+    
+const inputs = document.querySelectorAll('.inputs input');
+for (let i = 0; i < inputs.length; i++) { 
+  inputs[i].addEventListener('keydown', function(event) { 
+    if (event.key==="Backspace" ) {
+     inputs[i].value='' ; 
+     if (i !==0) inputs[i - 1].focus(); 
+    } else { 
+      if (i===inputs.length - 1 && inputs[i].value !=='' ) {
+       return true;
+        } else if (event.keyCode >= 96 && event.keyCode <= 105) { 
+          inputs[i].value=event.key;
+           if (i !==inputs.length - 1) inputs[i + 1].focus();
+            event.preventDefault(); 
+          } else if (event.keyCode >= 48 && event.keyCode <= 57) {
+           inputs[i].value=String.fromCharCode(event.keyCode); 
+           if (i !==inputs.length - 1) inputs[i + 1].focus();
+            event.preventDefault();
+            } 
+          } 
+        });
+         }
+          } 
+          function OTPInputs() {
+    
+const inputs = document.querySelectorAll('.input_ input');
+for (let i = 0; i < inputs.length; i++) { 
+  inputs[i].addEventListener('keydown', function(event) { 
+    if (event.key==="Backspace" ) {
+     inputs[i].value='' ; 
+     if (i !==0) inputs[i - 1].focus(); 
+    } else { 
+      if (i===inputs.length - 1 && inputs[i].value !=='' ) {
+       return true;
+        } else if (event.keyCode >= 96 && event.keyCode <= 105) { 
+          inputs[i].value=event.key;
+           if (i !==inputs.length - 1) inputs[i + 1].focus();
+            event.preventDefault(); 
+          } else if (event.keyCode >= 48 && event.keyCode <= 57) {
+           inputs[i].value=String.fromCharCode(event.keyCode); 
+           if (i !==inputs.length - 1) inputs[i + 1].focus();
+            event.preventDefault();
+            } 
+          } 
+        });
+         }
+          }
+          OTPInputs(); 
+          OTPInput();
+      });

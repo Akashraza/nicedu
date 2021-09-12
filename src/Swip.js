@@ -1,88 +1,169 @@
-import React, { useState } from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import SwiperCore, { Navigation, Pagination, Controller, Thumbs } from 'swiper';
-import 'swiper/swiper-bundle.css';
-
-
-SwiperCore.use([Navigation, Pagination, Controller, Thumbs]);
-
+import React from "react";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick-theme.css";
 function Swip() {
-  const [thumbsSwiper, setThumbsSwiper] = useState(null);
-  const [controlledSwiper, setControlledSwiper] = useState(null);
+	  var settings = {
+      dots: false,
+      infinite: true,
+      slidesToShow: 3,
+      slidesToScroll: 1,
+      autoplay: true,
+      autoplaySpeed: 2000,
+      pauseOnHover: true,
+      responsive: [
+       {
+          breakpoint: 13000,
+          settings: {
+            slidesToShow: 4,
+            slidesToScroll: 4,
+            infinite: true,
+            dots: true
+          }
+        },
+        {
+          breakpoint: 1024,
+          settings: {
+            slidesToShow: 3,
+            slidesToScroll: 3,
+            infinite: true,
+            dots: true
+          }
+        },
+        {
+          breakpoint: 991,
+          settings: {
+            slidesToShow: 3,
+            slidesToScroll: 3,
+            initialSlide: 3
+          }
+        },
+        {
+          breakpoint: 768,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 2,
+            initialSlide: 2
+          }
+        },
+        {
+          breakpoint: 600,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 2,
+            initialSlide: 2
+          }
+        },
+        {
+          breakpoint: 480,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1
+          }
+        },
+         {
+          breakpoint: 320,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1
+          }
+        }
+      ]
+    };
+	return (
+		 
+		 <div className="ensure_career">
+        <div className="container-fluid">
+        <h2 className="heading_e">Ensure Your career</h2>    
+        <Slider {...settings}>
+       
+		    <div>
+		    <div className="career_box">
+				 	<div className="title_h">
+				 		<span className="imgb"><img src={require('./images/support.png').default} alt="construction" /></span>
+				 		<h5> Construction, Mining, Fuel, Energy and Environment</h5>
+				 		<p>Lorem ipsum dolor sit amet, </p>
+				 	</div>
+				 	<span className="icon_hover"><img src={require('./images/support.png').default} alt="construction" /></span>
+				 </div>
+		    </div>
+           <div>
+		    <div className="career_box">
+				 	<div className="title_h">
+				 		<span className="imgb"><img src={require('./images/art.png').default} alt="construction" /></span>
+				 		<h5> Arts, Design, Entertainment, Media, Games & Sports</h5>
+				 		<p>Lorem ipsum dolor sit amet, </p>
+				 	</div>
+				 	<span className="icon_hover"><img src={require('./images/art.png').default} alt="construction" /></span>
+				 </div>
+		    </div>
+             <div>
+		    <div className="career_box">
+				 	<div className="title_h">
+				 		<span className="imgb"><img src={require('./images/online-banking.png').default} alt="construction" /></span>
+				 		<h5> Banking, Insurance, Accountancy and Financial Services</h5>
+				 		<p>Lorem ipsum dolor sit amet, </p>
+				 	</div>
+				 	<span className="icon_hover"><img src={require('./images/online-banking.png').default} alt="construction" /></span>
+				 </div>
+		    </div>
+           <div>
+		    <div className="career_box">
+				 	<div className="title_h">
+				 		<span className="imgb"><img src={require('./images/bar-chart.png').default} alt="construction" /></span>
+				 		<h5> Business, Management, HR, and Administrative Support</h5>
+				 		<p>Lorem ipsum dolor sit amet, </p>
+				 	</div>
+				 	<span className="icon_hover"><img src={require('./images/bar-chart.png').default} alt="construction" /></span>
+				 </div>
+		    </div>
+          <div>
+		    <div className="career_box">
+				 	<div className="title_h">
+				 		<span className="imgb"><img src={require('./images/defence.png').default} alt="construction" /></span>
+				 		<h5> Defence and Armed Forces</h5>
+				 		<p>Lorem ipsum dolor sit amet, </p>
+				 	</div>
+				 	<span className="icon_hover"><img src={require('./images/defence.png').default} alt="construction" /></span>
+				 </div>
+		    </div>
+          <div>
+		    <div className="career_box">
+				 	<div className="title_h">
+				 		<span className="imgb"><img src={require('./images/education.png').default} alt="construction" /></span>
+				 		<h5>Education, Training, Library and Career Counselling</h5>
+				 		<p>Lorem ipsum dolor sit amet, </p>
+				 	</div>
+				 	<span className="icon_hover"><img src={require('./images/education.png').default} alt="construction" /></span>
+				 </div>
+		    </div>
+		 		  <div>
+		    <div className="career_box">
+				 	<div className="title_h">
+				 		<span className="imgb"><img src={require('./images/agriculture.png').default} alt="construction" /></span>
+				 		<h5>Agriculture, Forestry, Fishing, Animal & Veterinary</h5>
+				 		<p>Lorem ipsum dolor sit amet, </p>
+				 	</div>
+				 	<span className="icon_hover"><img src={require('./images/agriculture.png').default} alt="construction" /></span>
+				 </div>
+		    </div>
+		 		  <div>
+		    <div className="career_box">
+				 	<div className="title_h">
+				 		<span className="imgb"><img src={require('./images/government.png').default} alt="construction" /></span>
+				 		<h5>Government and Public Administration</h5>
+				 		<p>Lorem ipsum dolor sit amet, </p>
+				 	</div>
+				 	<span className="icon_hover"><img src={require('./images/government.png').default} alt="construction" /></span>
+				 </div>
+		    </div>
+        </Slider>
+      </div>
+      </div>
+      
+     
 
-  const slides = [];
-  for (let i = 0; i < 5; i += 1) {
-    slides.push(
-      <SwiperSlide key={`slide-${i}`} tag="li">
-        <img
-          src={`https://picsum.photos/id/${i + 1}/500/300`}
-          style={{ listStyle: 'none' }}
-          alt={`Slide ${i}`}
-        />
-      </SwiperSlide>
-    );
-  }
-
-  const thumbs = [];
-  for (let i = 0; i < 5; i += 1) {
-    thumbs.push(
-      <SwiperSlide key={`thumb-${i}`} tag="li" style={{ listStyle: 'none' }}>
-        <img
-          src={`https://picsum.photos/id/${i}/163/100`}
-          alt={`Thumbnail ${i}`}
-        ></img>
-      </SwiperSlide>
-    );
-  }
-
-  const slides2 = [];
-  for (let i = 9; i < 14; i += 1) {
-    slides2.push(
-      <SwiperSlide key={`slide-${i}`} tag="li">
-        <img
-          src={`https://picsum.photos/id/${i + 1}/500/300`}
-          style={{ listStyle: 'none' }}
-          alt={`Slide ${i}`}
-        />
-      </SwiperSlide>
-    );
-  }
-
-  return (
-    <React.Fragment>
-      <Swiper
-        id="main"
-        thumbs={{ swiper: thumbsSwiper }}
-        controller={{ control: controlledSwiper }}
-        tag="section"
-        wrapperTag="ul"
-        navigation
-        pagination
-        spaceBetween={0}
-        slidesPerView={1}
-        onInit={(swiper) => console.log('Swiper initialized!', swiper)}
-        onSlideChange={(swiper) => {
-          console.log('Slide index changed to: ', swiper.activeIndex);
-        }}
-        onReachEnd={() => console.log('Swiper end reached')}
-      >
-        {slides}
-      </Swiper>
-
-      <Swiper
-        id="thumbs"
-        spaceBetween={5}
-        slidesPerView={3}
-        onSwiper={setThumbsSwiper}
-      >
-        {thumbs}
-      </Swiper>
-
-      <Swiper id="controller" onSwiper={setControlledSwiper}>
-        {slides2}
-      </Swiper>
-    </React.Fragment>
-  );
+	)
 }
 
-export default Swip;
+export default Swip
