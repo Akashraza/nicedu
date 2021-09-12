@@ -13,7 +13,7 @@ function Swip() {
       pauseOnHover: true,
       responsive: [
        {
-          breakpoint: 13000,
+          breakpoint: 1300,
           settings: {
             slidesToShow: 4,
             slidesToScroll: 4,
