@@ -1033,3 +1033,17 @@ background: linear-gradient(180deg, rgba(217,244,235,0.17440479609812676) 6%, rg
    	font-size: 8px;
    }
   }    
+
+
+  .swiper-container {
+	width: 500px;
+  }
+  
+  .swiper-pagination {
+	bottom: 0;
+	padding-bottom: 10px;
+  }
+  
+  .swiper-wrapper {
+	padding-inline-start: 0;
+  }

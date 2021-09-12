@@ -1,48 +1,88 @@
-
-import React, { useRef, useState } from "react";
-// Import Swiper React components
-import { Swiper, SwiperSlide } from "swiper/react";
-
-// Import Swiper styles
-import "swiper/css";
-import "swiper/css/pagination"
-
-import "./styles.css";
+import React, { useState } from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import SwiperCore, { Navigation, Pagination, Controller, Thumbs } from 'swiper';
+import 'swiper/swiper-bundle.css';
 
 
-// import Swiper core and required modules
-import SwiperCore, {
-  Pagination
-} from 'swiper';
+SwiperCore.use([Navigation, Pagination, Controller, Thumbs]);
 
-// install Swiper modules
-SwiperCore.use([Pagination]);
+function Swip() {
+  const [thumbsSwiper, setThumbsSwiper] = useState(null);
+  const [controlledSwiper, setControlledSwiper] = useState(null);
 
-
-export default function App() {
-  
-  
-  
-  return (
-    <>
-    <Swiper slidesPerView={1} spaceBetween={10} pagination={{
-  "clickable": true
-}} breakpoints={{
-  "640": {
-    "slidesPerView": 2,
-    "spaceBetween": 20
-  },
-  "768": {
-    "slidesPerView": 4,
-    "spaceBetween": 40
-  },
-  "1024": {
-    "slidesPerView": 5,
-    "spaceBetween": 50
+  const slides = [];
+  for (let i = 0; i < 5; i += 1) {
+    slides.push(
+      <SwiperSlide key={`slide-${i}`} tag="li">
+        <img
+          src={`https://picsum.photos/id/${i + 1}/500/300`}
+          style={{ listStyle: 'none' }}
+          alt={`Slide ${i}`}
+        />
+      </SwiperSlide>
+    );
   }
-}} className="mySwiper">
-  <SwiperSlide>Slide 1</SwiperSlide><SwiperSlide>Slide 2</SwiperSlide><SwiperSlide>Slide 3</SwiperSlide><SwiperSlide>Slide 4</SwiperSlide><SwiperSlide>Slide 5</SwiperSlide><SwiperSlide>Slide 6</SwiperSlide><SwiperSlide>Slide 7</SwiperSlide><SwiperSlide>Slide 8</SwiperSlide><SwiperSlide>Slide 9</SwiperSlide>
-  </Swiper>
-    </>
-  )
+
+  const thumbs = [];
+  for (let i = 0; i < 5; i += 1) {
+    thumbs.push(
+      <SwiperSlide key={`thumb-${i}`} tag="li" style={{ listStyle: 'none' }}>
+        <img
+          src={`https://picsum.photos/id/${i}/163/100`}
+          alt={`Thumbnail ${i}`}
+        ></img>
+      </SwiperSlide>
+    );
+  }
+
+  const slides2 = [];
+  for (let i = 9; i < 14; i += 1) {
+    slides2.push(
+      <SwiperSlide key={`slide-${i}`} tag="li">
+        <img
+          src={`https://picsum.photos/id/${i + 1}/500/300`}
+          style={{ listStyle: 'none' }}
+          alt={`Slide ${i}`}
+        />
+      </SwiperSlide>
+    );
+  }
+
+  return (
+    <React.Fragment>
+      <Swiper
+        id="main"
+        thumbs={{ swiper: thumbsSwiper }}
+        controller={{ control: controlledSwiper }}
+        tag="section"
+        wrapperTag="ul"
+        navigation
+        pagination
+        spaceBetween={0}
+        slidesPerView={1}
+        onInit={(swiper) => console.log('Swiper initialized!', swiper)}
+        onSlideChange={(swiper) => {
+          console.log('Slide index changed to: ', swiper.activeIndex);
+        }}
+        onReachEnd={() => console.log('Swiper end reached')}
+      >
+        {slides}
+      </Swiper>
+
+      <Swiper
+        id="thumbs"
+        spaceBetween={5}
+        slidesPerView={3}
+        onSwiper={setThumbsSwiper}
+      >
+        {thumbs}
+      </Swiper>
+
+      <Swiper id="controller" onSwiper={setControlledSwiper}>
+        {slides2}
+      </Swiper>
+    </React.Fragment>
+  );
 }
+
+export default Swip;
